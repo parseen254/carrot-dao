@@ -9,11 +9,7 @@ import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 
 // React Project example components
-import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import PageLayout from "examples/LayoutContainers/PageLayout";
-
-// React Project page layout routes
-import pageRoutes from "page.routes";
 
 // Images
 import pattern from "assets/images/shapes/pattern-lines.svg";
@@ -21,22 +17,14 @@ import pattern from "assets/images/shapes/pattern-lines.svg";
 function IllustrationLayout({ color, header, title, description, illustration, children }) {
   return (
     <PageLayout background="white">
-      <DefaultNavbar
-        routes={pageRoutes}
-        action={{
-          type: "external",
-          route: "https://creative-tim.com/product/soft-ui-dashboard-pro-react",
-          label: "buy now",
-        }}
-      />
       <Grid container>
         <Grid item xs={11} sm={8} md={6} lg={4} xl={3} sx={{ mx: "auto" }}>
           <SoftBox display="flex" flexDirection="column" justifyContent="center" height="100vh">
             <SoftBox pt={3} px={3}>
               {!header ? (
                 <>
-                  <SoftBox mb={1}>
-                    <SoftTypography variant="h4" fontWeight="bold">
+                  <SoftBox mb={16}>
+                    <SoftTypography variant="h2" color={"dark"} fontWeight="bold">
                       {title}
                     </SoftTypography>
                   </SoftBox>
@@ -62,17 +50,16 @@ function IllustrationLayout({ color, header, title, description, illustration, c
             position="relative"
             borderRadius="lg"
             textAlign="center"
-            bgColor={color}
+            bgColor={"dark"}
             variant="gradient"
             m={2}
-            px={13}
             sx={{ overflow: "hidden" }}
           >
             <SoftBox
               component="img"
               src={pattern}
               alt="pattern-lines"
-              width="120rem"
+              width="128rem"
               position="absolute"
               topl={0}
               left={0}
@@ -84,22 +71,8 @@ function IllustrationLayout({ color, header, title, description, illustration, c
                 src={illustration.image}
                 alt="chat-illustration"
                 width="100%"
-                maxWidth="31.25rem"
+                height="100%"
               />
-            )}
-            {illustration.title && (
-              <SoftBox mt={6} mb={1}>
-                <SoftTypography variant="h4" color="white" fontWeight="bold">
-                  {illustration.title}
-                </SoftTypography>
-              </SoftBox>
-            )}
-            {illustration.description && (
-              <SoftBox mb={1}>
-                <SoftTypography variant="body2" color="white">
-                  {illustration.description}
-                </SoftTypography>
-              </SoftBox>
             )}
           </SoftBox>
         </Grid>

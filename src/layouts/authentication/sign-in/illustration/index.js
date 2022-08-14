@@ -16,61 +16,35 @@ import SoftButton from "components/SoftButton";
 import IllustrationLayout from "layouts/authentication/components/IllustrationLayout";
 
 // Image
-import chat from "assets/images/illustrations/chat.png";
+import carrot from "assets/images/illustrations/carrot-neon.png";
+import phantom from "assets/images/logos/phantom-wallet.png";
 
 function Illustration() {
-  const [rememberMe, setRememberMe] = useState(false);
-
-  const handleSetRememberMe = () => setRememberMe(!rememberMe);
-
   return (
     <IllustrationLayout
-      title="Sign In"
-      description="Enter your email and password to sign in"
+      title="Carrot DAO"
+      description="Connect your Phantom Wallet to Proceed"
       illustration={{
-        image: chat,
+        image: carrot,
         title: '"Attention is the new currency"',
         description:
           "The more effortless the writing looks, the more effort the writer actually put into the process.",
       }}
     >
       <SoftBox component="form" role="form">
-        <SoftBox mb={2}>
-          <SoftInput type="email" placeholder="Email" size="large" />
-        </SoftBox>
-        <SoftBox mb={2}>
-          <SoftInput type="password" placeholder="Password" size="large" />
-        </SoftBox>
         <SoftBox display="flex" alignItems="center">
-          <Switch checked={rememberMe} onChange={handleSetRememberMe} />
-          <SoftTypography
-            variant="button"
-            fontWeight="regular"
-            onClick={handleSetRememberMe}
-            sx={{ cursor: "pointer", userSelect: "none" }}
-          >
-            &nbsp;&nbsp;Remember me
-          </SoftTypography>
+          <SoftBox
+            component="img"
+            src={phantom}
+            alt="logo-illustration"
+            width="100%"
+            borderRadius="10px"
+          />
         </SoftBox>
         <SoftBox mt={4} mb={1}>
-          <SoftButton variant="gradient" color="info" size="large" fullWidth>
-            sign in
+          <SoftButton variant="gradient" color="warning" size="large" fullWidth>
+            Connect Wallet to Sign In
           </SoftButton>
-        </SoftBox>
-        <SoftBox mt={3} textAlign="center">
-          <SoftTypography variant="button" color="text" fontWeight="regular">
-            Don&apos;t have an account?{" "}
-            <SoftTypography
-              component={Link}
-              to="/authentication/sign-up/illustration"
-              variant="button"
-              color="info"
-              fontWeight="medium"
-              textGradient
-            >
-              Sign up
-            </SoftTypography>
-          </SoftTypography>
         </SoftBox>
       </SoftBox>
     </IllustrationLayout>

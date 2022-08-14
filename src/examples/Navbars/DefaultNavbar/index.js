@@ -100,42 +100,10 @@ function DefaultNavbar({ routes, transparent, light, action }) {
       >
         <SoftBox component={Link} to="/" py={transparent ? 1.5 : 0.75} lineHeight={1}>
           <SoftTypography variant="button" fontWeight="bold" color={light ? "white" : "dark"}>
-            This Project
+            Carrot DAO
           </SoftTypography>
         </SoftBox>
-        <SoftBox color="inherit" display={{ xs: "none", lg: "flex" }} m={0} p={0}>
-          <DefaultNavbarLink
-            name="pages"
-            openHandler={openPagesMenu}
-            closeHandler={closePagesMenu}
-            light={light}
-          />
-          <DefaultNavbarLink
-            name="authentication"
-            openHandler={openAuthenticationMenu}
-            closeHandler={closeAuthenticationMenu}
-            light={light}
-          />
 
-          <DefaultNavbarLink
-            name="application"
-            openHandler={openApplicationsMenu}
-            closeHandler={closeApplicationsMenu}
-            light={light}
-          />
-          <DefaultNavbarLink
-            name="ecommerce"
-            openHandler={openEcommerceMenu}
-            closeHandler={closeEcommerceMenu}
-            light={light}
-          />
-          <DefaultNavbarLink
-            name="docs"
-            openHandler={openDocsMenu}
-            closeHandler={closeDocsMenu}
-            light={light}
-          />
-        </SoftBox>
         {action &&
           (action.type === "internal" ? (
             <SoftBox display={{ xs: "none", lg: "inline-block" }}>
