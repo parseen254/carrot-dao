@@ -41,6 +41,9 @@ function reducer(state, action) {
     case "LAYOUT": {
       return { ...state, layout: action.value };
     }
+    case "WALLET": {
+      return { ...state, walletAddress: action.value };
+    }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
@@ -58,6 +61,7 @@ function SoftUIControllerProvider({ children }) {
     openConfigurator: false,
     direction: "ltr",
     layout: "dashboard",
+    walletAddress: null,
   };
 
   const [controller, dispatch] = useReducer(reducer, initialState);
@@ -92,6 +96,7 @@ const setFixedNavbar = (dispatch, value) => dispatch({ type: "FIXED_NAVBAR", val
 const setOpenConfigurator = (dispatch, value) => dispatch({ type: "OPEN_CONFIGURATOR", value });
 const setDirection = (dispatch, value) => dispatch({ type: "DIRECTION", value });
 const setLayout = (dispatch, value) => dispatch({ type: "LAYOUT", value });
+const setWalletAddress = (dispatch, value) => dispatch({ type: "WALLET", value });
 
 export {
   SoftUIControllerProvider,
@@ -104,4 +109,5 @@ export {
   setOpenConfigurator,
   setDirection,
   setLayout,
+  setWalletAddress,
 };

@@ -28,17 +28,57 @@ import createCache from "@emotion/cache";
 import routes from "routes";
 
 // React Project contexts
-import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
+import {
+  useSoftUIController,
+  setMiniSidenav,
+  setOpenConfigurator,
+  setWalletAddress,
+} from "context";
 
 // Images
 import brand from "assets/images/logo-ct.png";
 
 export default function App() {
   const [controller, dispatch] = useSoftUIController();
-  const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
+  const { miniSidenav, direction, layout, openConfigurator, sidenavColor, walletAddress } =
+    controller;
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
+
+  const handleWalletAddress = (address) => setWalletAddress(dispatch, address);
+
+  // Check if user is Signed In / has connected a Phantom Wallet
+  const checkIfWalletIsConnected = async () => {
+    try {
+      const { solana } = window;
+
+      if (solana) {
+        if (solana.isPhantom) {
+          console.log("Phantom wallet found!");
+          const response = await solana.connect({ onlyIfTrusted: true });
+          console.log("Connected with Public Key:", response.publicKey.toString());
+          /*
+           * Set the user's publicKey in state to be used later!
+           */
+          handleWalletAddress(response.publicKey.toString());
+        }
+      } else {
+        alert("Solana object not found! Get a Phantom Wallet 👻");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // UseEffects
+  useEffect(() => {
+    const onLoad = async () => {
+      await checkIfWalletIsConnected();
+    };
+    window.addEventListener("load", onLoad);
+    return () => window.removeEventListener("load", onLoad);
+  }, []);
 
   // Cache for the rtl
   useMemo(() => {
@@ -117,6 +157,12 @@ export default function App() {
     </SoftBox>
   );
 
+  if (!walletAddress && pathname !== "/signin") {
+    return <Navigate to="/signin" />;
+  } else if (walletAddress && pathname === "/signin") {
+    return <Navigate to="/" />;
+  }
+
   return direction === "rtl" ? (
     <CacheProvider value={rtlCache}>
       <ThemeProvider theme={themeRTL}>
@@ -126,13 +172,13 @@ export default function App() {
             <Sidenav
               color={sidenavColor}
               brand={brand}
-              brandName="This Project"
+              brandName="Carrot DAO"
               routes={routes}
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}
             />
             <Configurator />
-            {configsButton}
+            {/* {configsButton} */}
           </>
         )}
         {layout === "vr" && <Configurator />}
@@ -150,13 +196,13 @@ export default function App() {
           <Sidenav
             color={sidenavColor}
             brand={brand}
-            brandName="This Project"
+            brandName="Carrot DAO"
             routes={routes}
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
           />
           <Configurator />
-          {configsButton}
+          {/* {configsButton} */}
         </>
       )}
       {layout === "vr" && <Configurator />}

@@ -89,22 +89,13 @@ import Cube from "examples/Icons/Cube";
 
 const routes = [
   {
-    type: "collapse",
+    type: "route",
     name: "SignIn",
     key: "sigin",
     route: "/signin",
     noCollapse: true,
     icon: <Cube size="12px" />,
     component: <SignInIllustration />,
-  },
-  {
-    type: "collapse",
-    name: "Account",
-    key: "account",
-    route: "/account",
-    noCollapse: true,
-    icon: <Cube size="12px" />,
-    component: <Settings />,
   },
 
   {
@@ -142,6 +133,16 @@ const routes = [
     noCollapse: true,
     icon: <Cube size="12px" />,
     component: <ProfileOverview />,
+  },
+  { type: "divider", key: "divider-1" },
+  {
+    type: "collapse",
+    name: "Account",
+    key: "account",
+    route: "/account",
+    noCollapse: true,
+    icon: <Cube size="12px" />,
+    component: <Settings />,
   },
 ];
 
