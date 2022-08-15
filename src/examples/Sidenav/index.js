@@ -20,7 +20,6 @@ import SoftTypography from "components/SoftTypography";
 import SidenavCollapse from "examples/Sidenav/SidenavCollapse";
 import SidenavList from "examples/Sidenav/SidenavList";
 import SidenavItem from "examples/Sidenav/SidenavItem";
-import SidenavCard from "examples/Sidenav/SidenavCard";
 
 // Custom styles for the Sidenav
 import SidenavRoot from "examples/Sidenav/SidenavRoot";
@@ -214,8 +213,17 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
             <Icon sx={{ fontWeight: "bold" }}>close</Icon>
           </SoftTypography>
         </SoftBox>
-        <SoftBox component={NavLink} to="/" display="flex" alignItems="center">
-          {brand && <SoftBox component="img" src={brand} alt="Soft UI Logo" width="2rem" />}
+        <SoftBox component={NavLink} to="/browse" display="flex" alignItems="center">
+          {brand && (
+            <SoftBox
+              component="img"
+              borderRadius={"50%"}
+              my={-4}
+              src={brand}
+              alt="Soft UI Logo"
+              width="2rem"
+            />
+          )}
           <SoftBox
             width={!brandName && "100%"}
             sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}
@@ -234,7 +242,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 
 // Setting default values for the props of Sidenav
 Sidenav.defaultProps = {
-  color: "info",
+  color: "warning",
   brand: "",
 };
 
