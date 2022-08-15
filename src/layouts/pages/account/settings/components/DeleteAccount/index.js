@@ -12,10 +12,10 @@ function DeleteAccount() {
     <Card id="delete-account">
       <SoftBox p={3} lineHeight={1}>
         <SoftBox mb={1}>
-          <SoftTypography variant="h5">Delete Account</SoftTypography>
+          <SoftTypography variant="h5">Deactivate Account</SoftTypography>
         </SoftBox>
         <SoftTypography variant="button" color="text" fontWeight="regular">
-          Once you delete your account, there is no going back. Please be certain.
+          Once you deactivate your account, there is no going back. Please be certain.
         </SoftTypography>
       </SoftBox>
       <SoftBox
@@ -33,17 +33,14 @@ function DeleteAccount() {
               Confirm
             </SoftTypography>
             <SoftTypography variant="caption" color="text">
-              I want to delete my account.
+              I want to deactivate my account.
             </SoftTypography>
           </SoftBox>
         </SoftBox>
         <SoftBox display="flex" flexDirection={{ xs: "column", sm: "row" }}>
-          <SoftButton variant="outlined" color="secondary">
-            deactivate
-          </SoftButton>
           <SoftBox ml={{ xs: 0, sm: 1 }} mt={{ xs: 1, sm: 0 }}>
             <SoftButton variant="gradient" color="error" sx={{ height: "100%" }}>
-              delete account
+              deactivate account
             </SoftButton>
           </SoftBox>
         </SoftBox>

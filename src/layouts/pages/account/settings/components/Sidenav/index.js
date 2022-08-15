@@ -19,11 +19,11 @@ function Sidenav() {
   const sidenavItems = [
     { icon: <SpaceShip />, label: "profile", href: "profile" },
     { icon: <Document />, label: "basic info", href: "basic-info" },
-    { icon: <Cube />, label: "change password", href: "change-password" },
-    { icon: <Shop />, label: "2FA", href: "2fa" },
+    // { icon: <Cube />, label: "change password", href: "change-password" },
+    // { icon: <Shop />, label: "2FA", href: "2fa" },
     { icon: <Office />, label: "accounts", href: "accounts" },
-    { icon: <CustomerSupport />, label: "notifications", href: "notifications" },
-    { icon: <Settings />, label: "sessions", href: "sessions" },
+    // { icon: <CustomerSupport />, label: "notifications", href: "notifications" },
+    // { icon: <Settings />, label: "sessions", href: "sessions" },
     { icon: <CreditCard />, label: "delete account", href: "delete-account" },
   ];
 

@@ -41,10 +41,7 @@ function Overview() {
       <Header />
       <SoftBox mt={5} mb={3}>
         <Grid container spacing={3}>
-          <Grid item xs={12} md={6} xl={4}>
-            <PlatformSettings />
-          </Grid>
-          <Grid item xs={12} md={6} xl={4}>
+          <Grid item xs={12} md={6} xl={6}>
             <ProfileInfoCard
               title="profile information"
               description="Hi, I’m Alec Thompson, Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality)."
@@ -74,7 +71,7 @@ function Overview() {
               action={{ route: "", tooltip: "Edit Profile" }}
             />
           </Grid>
-          <Grid item xs={12} xl={4}>
+          <Grid item xs={12} xl={6}>
             <ProfilesList title="conversations" profiles={profilesListData} />
           </Grid>
         </Grid>

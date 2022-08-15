@@ -75,89 +75,56 @@ function Teams() {
   return (
     <DashboardLayout>
       <Header />
-      <SoftBox my={3}>
-        <Stories />
-      </SoftBox>
-      <SoftBox mb={3}>
+      <SoftBox m={3}>
         <Grid container spacing={3}>
-          <Grid item xs={12} lg={8}>
-            <Post />
+          <Grid item xs={12} md={4}>
+            <SoftBox mb={3}>
+              <TeamProfileCard
+                title="digital marketing"
+                description="A group of people who collectively are responsible for all of the work necessary to produce working, validated assets."
+                industry="marketing team"
+                rating={4.5}
+                members={[
+                  { image: team1, name: "Alexa Tompson" },
+                  { image: team2, name: "Martin Doe" },
+                  { image: team3, name: "Alexaner Smith" },
+                  { image: team4, name: "Romina Hadid" },
+                ]}
+                dropdown={{
+                  action: openMarketingMenu,
+                  menu: renderMarketingMenu,
+                }}
+              />
+            </SoftBox>
           </Grid>
-          <Grid item xs={12} lg={4}>
-            <Grid item xs={12}>
-              <SoftBox mb={3}>
-                <TeamProfileCard
-                  title="digital marketing"
-                  description="A group of people who collectively are responsible for all of the work necessary to produce working, validated assets."
-                  industry="marketing team"
-                  rating={4.5}
-                  members={[
-                    { image: team1, name: "Alexa Tompson" },
-                    { image: team2, name: "Martin Doe" },
-                    { image: team3, name: "Alexaner Smith" },
-                    { image: team4, name: "Romina Hadid" },
-                  ]}
-                  dropdown={{
-                    action: openMarketingMenu,
-                    menu: renderMarketingMenu,
-                  }}
-                />
-              </SoftBox>
-            </Grid>
-            <Grid item xs={12}>
-              <SoftBox mb={3}>
-                <TeamProfileCard
-                  title="design"
-                  description="Because it's about motivating the doers. Because I’m here to follow my dreams and inspire other people to follow their dreams, too."
-                  industry="design team"
-                  rating={5}
-                  members={[
-                    { image: team1, name: "Alexa Tompson" },
-                    { image: team2, name: "Martin Doe" },
-                    { image: team3, name: "Alexaner Smith" },
-                    { image: team4, name: "Romina Hadid" },
-                  ]}
-                  dropdown={{
-                    action: openDesignMenu,
-                    menu: renderDesignMenu,
-                  }}
-                />
-              </SoftBox>
-            </Grid>
-            <Grid item xs={12}>
-              <SoftBox mb={3}>
-                <EventCard
-                  id="902-128-281"
-                  image={logoSlack}
-                  title="slack meet"
-                  dateTime="11:00 AM"
-                  description="You have an upcoming meet for Marketing Planning"
-                  action={{ type: "internal", route: "/", color: "success", label: "join" }}
-                  members={[
-                    { image: team1, name: "Alexa Tompson" },
-                    { image: team2, name: "Martin Doe" },
-                    { image: team3, name: "Alexaner Smith" },
-                    { image: team5, name: "Romina Hadid" },
-                  ]}
-                />
-              </SoftBox>
-            </Grid>
-
-            <Grid item xs={12}>
+          <Grid item xs={12} md={4}>
+            <SoftBox mb={3}>
+              <TeamProfileCard
+                title="design"
+                description="Because it's about motivating the doers. Because I’m here to follow my dreams and inspire other people."
+                industry="design team"
+                rating={5}
+                members={[
+                  { image: team1, name: "Alexa Tompson" },
+                  { image: team2, name: "Martin Doe" },
+                  { image: team3, name: "Alexaner Smith" },
+                  { image: team4, name: "Romina Hadid" },
+                ]}
+                dropdown={{
+                  action: openDesignMenu,
+                  menu: renderDesignMenu,
+                }}
+              />
+            </SoftBox>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <SoftBox mb={3} h="100%">
               <EventCard
-                id="111-968-981"
-                image={logoInvision}
-                title="invision"
-                dateTime="4:45 PM"
-                description={
-                  <>
-                    You have an upcoming video call for{" "}
-                    <SoftTypography component="span" variant="body2" color="info">
-                      Soft Design
-                    </SoftTypography>{" "}
-                    at 5:00 PM.
-                  </>
-                }
+                id="902-128-281"
+                image={logoSlack}
+                title="slack meet"
+                dateTime="11:00 AM"
+                description="You have an upcoming meet for Marketing Planning. You have an upcoming meet for Marketing Planning. You have an upcoming meet for Marketing Planning"
                 action={{ type: "internal", route: "/", color: "success", label: "join" }}
                 members={[
                   { image: team1, name: "Alexa Tompson" },
@@ -166,7 +133,32 @@ function Teams() {
                   { image: team5, name: "Romina Hadid" },
                 ]}
               />
-            </Grid>
+            </SoftBox>
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <EventCard
+              id="111-968-981"
+              image={logoInvision}
+              title="invision"
+              dateTime="4:45 PM"
+              description={
+                <>
+                  You have an upcoming video call for{" "}
+                  <SoftTypography component="span" variant="body2" color="info">
+                    Soft Design
+                  </SoftTypography>{" "}
+                  at 5:00 PM.
+                </>
+              }
+              action={{ type: "internal", route: "/", color: "success", label: "join" }}
+              members={[
+                { image: team1, name: "Alexa Tompson" },
+                { image: team2, name: "Martin Doe" },
+                { image: team3, name: "Alexaner Smith" },
+                { image: team5, name: "Romina Hadid" },
+              ]}
+            />
           </Grid>
         </Grid>
       </SoftBox>

@@ -132,7 +132,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
           <Breadcrumbs icon="home" title={route[route.length - 1]} route={route} light={light} />
           <SoftBox color={light ? "white" : "inherit"}>
             <IconButton
-              size="small"
+              size="medium"
               color="inherit"
               sx={navbarMobileMenu}
               onClick={handleMiniSidenav}
@@ -144,7 +144,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
             {renderMenu()}
           </SoftBox>
           <SoftBox sx={(theme) => navbarRow(theme, { isMini })}>
-            <SoftBox ml={10} width="50vw">
+            <SoftBox mx={15} width="40vw">
               <SoftInput
                 placeholder="Type here..."
                 icon={{ component: "search", direction: "right" }}

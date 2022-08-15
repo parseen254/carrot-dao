@@ -26,10 +26,13 @@ import breakpoints from "assets/theme/base/breakpoints";
 // Images
 import burceMars from "assets/images/bruce-mars.jpg";
 import curved0 from "assets/images/curved-images/curved0.jpg";
+import { useSoftUIController } from "context";
 
 function Header() {
   const [tabsOrientation, setTabsOrientation] = useState("horizontal");
   const [tabValue, setTabValue] = useState(0);
+  const [controller, _dispatch] = useSoftUIController();
+  const { walletAddress } = controller;
 
   useEffect(() => {
     // A function that sets the orientation state of the tabs.
@@ -88,7 +91,7 @@ function Header() {
         <Grid container spacing={3} alignItems="center">
           <Grid item>
             <SoftAvatar
-              src={burceMars}
+              src={`https://avatars.dicebear.com/api/croodles-neutral/${walletAddress.toString()}.svg`}
               alt="profile-image"
               variant="rounded"
               size="xl"
@@ -98,10 +101,10 @@ function Header() {
           <Grid item>
             <SoftBox height="100%" mt={0.5} lineHeight={1}>
               <SoftTypography variant="h5" fontWeight="medium">
-                Alex Thompson
+                {walletAddress.toString()}
               </SoftTypography>
               <SoftTypography variant="button" color="text" fontWeight="medium">
-                CEO / Co-Founder
+                Member
               </SoftTypography>
             </SoftBox>
           </Grid>
@@ -113,9 +116,9 @@ function Header() {
                 onChange={handleSetTabValue}
                 sx={{ background: "transparent" }}
               >
-                <Tab label="App" icon={<Cube />} />
+                {/* <Tab label="App" icon={<Cube />} />
                 <Tab label="Message" icon={<Document />} />
-                <Tab label="Settings" icon={<Settings />} />
+                <Tab label="Settings" icon={<Settings />} /> */}
               </Tabs>
             </AppBar>
           </Grid>

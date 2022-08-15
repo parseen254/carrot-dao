@@ -32,7 +32,10 @@ function Stories() {
         border={`${borderWidth[1]} solid ${colors[color].main}`}
         sx={{ cursor: "pointer" }}
       >
-        <SoftAvatar src={image} alt={name} />
+        <SoftAvatar
+          src={`https://avatars.dicebear.com/api/croodles-neutral/${name.toString()}.svg`}
+          alt={name}
+        />
       </SoftBox>
       <SoftBox mt={0.75} textAlign="center" lineHeight={1}>
         <SoftTypography variant="button" color="text" fontWeight="regular">

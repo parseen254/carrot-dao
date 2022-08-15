@@ -12,11 +12,15 @@ import SoftAvatar from "components/SoftAvatar";
 
 // Images
 import burceMars from "assets/images/bruce-mars.jpg";
+import { useSoftUIController } from "context";
 
 function Header() {
   const [visible, setVisible] = useState(true);
 
   const handleSetVisible = () => setVisible(!visible);
+
+  const [controller, _dispatch] = useSoftUIController();
+  const { walletAddress } = controller;
 
   return (
     <Card id="profile">
@@ -24,7 +28,7 @@ function Header() {
         <Grid container spacing={3} alignItems="center">
           <Grid item>
             <SoftAvatar
-              src={burceMars}
+              src={`https://avatars.dicebear.com/api/croodles-neutral/${walletAddress.toString()}.svg`}
               alt="profile-image"
               variant="rounded"
               size="xl"
@@ -34,14 +38,14 @@ function Header() {
           <Grid item>
             <SoftBox height="100%" mt={0.5} lineHeight={1}>
               <SoftTypography variant="h5" fontWeight="medium">
-                Alex Thompson
+                {walletAddress}
               </SoftTypography>
               <SoftTypography variant="button" color="text" fontWeight="medium">
-                CEO / Co-Founder
+                Member
               </SoftTypography>
             </SoftBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={3} sx={{ ml: "auto" }}>
+          {/* <Grid item xs={12} md={6} lg={3} sx={{ ml: "auto" }}>
             <SoftBox
               display="flex"
               justifyContent={{ md: "flex-end" }}
@@ -55,7 +59,7 @@ function Header() {
                 <Switch checked={visible} onChange={handleSetVisible} />
               </SoftBox>
             </SoftBox>
-          </Grid>
+          </Grid> */}
         </Grid>
       </SoftBox>
     </Card>

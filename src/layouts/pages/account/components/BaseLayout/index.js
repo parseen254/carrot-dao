@@ -54,10 +54,10 @@ function BaseLayout({ stickyNavbar, children }) {
           <Grid item xs={12} sm={8} lg={4}>
             <AppBar position="static">
               <Tabs orientation={tabsOrientation} value={tabValue} onChange={handleSetTabValue}>
-                <Tab label="Messages" />
+                {/* <Tab label="Messages" />
                 <Tab label="Social" />
                 <Tab label="Notifications" />
-                <Tab label="Backup" />
+                <Tab label="Backup" /> */}
               </Tabs>
             </AppBar>
           </Grid>

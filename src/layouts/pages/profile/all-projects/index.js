@@ -70,19 +70,6 @@ function AllProjects() {
     <DashboardLayout>
       <Header />
       <SoftBox pt={5} pb={2}>
-        <Grid container>
-          <Grid item xs={12} md={8}>
-            <SoftBox mb={1}>
-              <SoftTypography variant="h5">Some of Our Awesome Projects</SoftTypography>
-            </SoftBox>
-            <SoftBox mb={2}>
-              <SoftTypography variant="body2" color="text">
-                This is the paragraph where you can write more details about your projects. Keep you
-                user engaged by providing meaningful information.
-              </SoftTypography>
-            </SoftBox>
-          </Grid>
-        </Grid>
         <SoftBox mt={{ xs: 1, lg: 3 }} mb={1}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6} lg={4}>

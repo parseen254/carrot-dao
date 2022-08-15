@@ -33,21 +33,21 @@ function Settings() {
                 <Grid item xs={12}>
                   <BasicInfo />
                 </Grid>
-                <Grid item xs={12}>
+                {/* <Grid item xs={12}>
                   <ChangePassword />
-                </Grid>
-                <Grid item xs={12}>
+                </Grid> */}
+                {/* <Grid item xs={12}>
                   <Authentication />
-                </Grid>
+                </Grid> */}
                 <Grid item xs={12}>
                   <Accounts />
                 </Grid>
-                <Grid item xs={12}>
+                {/* <Grid item xs={12}>
                   <Notifications />
-                </Grid>
-                <Grid item xs={12}>
+                </Grid> */}
+                {/* <Grid item xs={12}>
                   <Sessions />
-                </Grid>
+                </Grid> */}
                 <Grid item xs={12}>
                   <DeleteAccount />
                 </Grid>
