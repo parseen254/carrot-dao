@@ -86,6 +86,7 @@ import SpaceShip from "examples/Icons/SpaceShip";
 import CustomerSupport from "examples/Icons/CustomerSupport";
 import CreditCard from "examples/Icons/CreditCard";
 import Cube from "examples/Icons/Cube";
+import { AccountTree, Explore, Flag, ManageAccounts, People } from "@mui/icons-material";
 
 const routes = [
   {
@@ -104,7 +105,7 @@ const routes = [
     key: "browse",
     route: "/browse",
     noCollapse: true,
-    icon: <Cube size="12px" />,
+    icon: <Explore size="12px" />,
     component: <Teams />,
   },
   {
@@ -113,7 +114,7 @@ const routes = [
     key: "milestones",
     route: "/milestones",
     noCollapse: true,
-    icon: <Cube size="12px" />,
+    icon: <Flag size="12px" />,
     component: <Timeline />,
   },
   {
@@ -122,7 +123,7 @@ const routes = [
     key: "projects",
     route: "/projects/all",
     noCollapse: true,
-    icon: <Cube size="12px" />,
+    icon: <AccountTree size="12px" />,
     component: <AllProjects />,
   },
   {
@@ -131,7 +132,7 @@ const routes = [
     key: "creators",
     route: "/creators/all",
     noCollapse: true,
-    icon: <Cube size="12px" />,
+    icon: <People size="12px" />,
     component: <ProfileOverview />,
   },
   { type: "divider", key: "divider-1" },
@@ -141,7 +142,7 @@ const routes = [
     key: "account",
     route: "/account",
     noCollapse: true,
-    icon: <Cube size="12px" />,
+    icon: <ManageAccounts size="12px" />,
     component: <Settings />,
   },
 ];
