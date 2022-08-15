@@ -160,7 +160,7 @@ export default function App() {
   if (!walletAddress && pathname !== "/signin") {
     return <Navigate to="/signin" />;
   } else if (walletAddress && pathname === "/signin") {
-    return <Navigate to="/" />;
+    return <Navigate to="/browse" />;
   }
 
   return direction === "rtl" ? (

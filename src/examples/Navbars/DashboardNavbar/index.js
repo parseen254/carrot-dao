@@ -130,70 +130,28 @@ function DashboardNavbar({ absolute, light, isMini }) {
       <Toolbar sx={(theme) => navbarContainer(theme)}>
         <SoftBox color="inherit" mb={{ xs: 1, md: 0 }} sx={(theme) => navbarRow(theme, { isMini })}>
           <Breadcrumbs icon="home" title={route[route.length - 1]} route={route} light={light} />
-          <Icon fontSize="medium" sx={navbarDesktopMenu} onClick={handleMiniSidenav}>
-            {miniSidenav ? "menu_open" : "menu"}
-          </Icon>
-        </SoftBox>
-        {isMini ? null : (
+          <SoftBox color={light ? "white" : "inherit"}>
+            <IconButton
+              size="small"
+              color="inherit"
+              sx={navbarMobileMenu}
+              onClick={handleMiniSidenav}
+            >
+              <Icon className={light ? "text-white" : "text-dark"}>
+                {miniSidenav ? "menu_open" : "menu"}
+              </Icon>
+            </IconButton>
+            {renderMenu()}
+          </SoftBox>
           <SoftBox sx={(theme) => navbarRow(theme, { isMini })}>
-            <SoftBox pr={1}>
+            <SoftBox ml={10} width="50vw">
               <SoftInput
                 placeholder="Type here..."
-                icon={{ component: "search", direction: "left" }}
+                icon={{ component: "search", direction: "right" }}
               />
             </SoftBox>
-            <SoftBox color={light ? "white" : "inherit"}>
-              <Link to="/authentication/sign-in/basic">
-                <IconButton sx={navbarIconButton} size="small">
-                  <Icon
-                    sx={({ palette: { dark, white } }) => ({
-                      color: light ? white.main : dark.main,
-                    })}
-                  >
-                    account_circle
-                  </Icon>
-                  <SoftTypography
-                    variant="button"
-                    fontWeight="medium"
-                    color={light ? "white" : "dark"}
-                  >
-                    Sign in
-                  </SoftTypography>
-                </IconButton>
-              </Link>
-              <IconButton
-                size="small"
-                color="inherit"
-                sx={navbarMobileMenu}
-                onClick={handleMiniSidenav}
-              >
-                <Icon className={light ? "text-white" : "text-dark"}>
-                  {miniSidenav ? "menu_open" : "menu"}
-                </Icon>
-              </IconButton>
-              <IconButton
-                size="small"
-                color="inherit"
-                sx={navbarIconButton}
-                onClick={handleConfiguratorOpen}
-              >
-                <Icon>settings</Icon>
-              </IconButton>
-              <IconButton
-                size="small"
-                color="inherit"
-                sx={navbarIconButton}
-                aria-controls="notification-menu"
-                aria-haspopup="true"
-                variant="contained"
-                onClick={handleOpenMenu}
-              >
-                <Icon className={light ? "text-white" : "text-dark"}>notifications</Icon>
-              </IconButton>
-              {renderMenu()}
-            </SoftBox>
           </SoftBox>
-        )}
+        </SoftBox>
       </Toolbar>
     </AppBar>
   );

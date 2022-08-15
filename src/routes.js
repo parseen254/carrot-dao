@@ -102,7 +102,7 @@ const routes = [
     type: "collapse",
     name: "Browse",
     key: "browse",
-    route: "/",
+    route: "/browse",
     noCollapse: true,
     icon: <Cube size="12px" />,
     component: <Teams />,
